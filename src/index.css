@@ -1,3 +1,38 @@
+:root {
+  --ui-colors-pitch-black: rgb(0, 0, 0);
+  --ui-colors-pitch-white: rgb(255, 255, 255);
+  --ui-colors-black: rgb(4, 0, 2);
+  --ui-colors-white: #D0D9CD;
+
+  --ui-colors-bg: #312e2b;
+  --ui-colors-border: var(--ui-colors-black);
+
+  --ui-colors-square: rgba(189, 189, 189, 1);
+  --ui-colors-square-hover: #D0D0D0;
+  --ui-colors-square-shown: #D0D0D0;
+  --ui-colors-square-shown-border: rgba(123, 123, 123, 0.25);
+
+  --ui-colors-square-value-blue: blue;
+  --ui-colors-square-value-green: green;
+  --ui-colors-square-value-red: darkred;
+  --ui-colors-square-value-purple: purple;
+  --ui-colors-square-value-yellow: yellow;
+  --ui-colors-square-value-pink: darkorange;
+  --ui-colors-square-value-brown: brown;
+  --ui-colors-square-value-teal: teal;
+  --ui-colors-square-value-bomb: rgba(139, 0, 0, 0.9);
+
+  --ui-colors-overlay-bg-defeat: rgba(139, 0, 0, 0.4);
+  --ui-colors-overlay-bg-victory: rgba(107, 216, 0, 0.6);
+  --ui-colors-overlay-bg-settings: rgba(189, 189, 189, 0.8);
+
+  --ui-colors-mines-left: green;
+  --ui-colors-time-left: green;
+
+  --ui-margin-amt: 8px;
+  --ui-border-radius: 8px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +40,5 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background-color: var(--ui-colors-bg);
 }

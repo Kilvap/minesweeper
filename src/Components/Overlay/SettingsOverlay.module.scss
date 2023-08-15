@@ -1,0 +1,70 @@
+.overlay {
+    position: absolute;
+    left: 0px;
+    right: 0px; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+
+    animation: fadeIn 250ms linear 100ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    color: var(--ui-colors-white);
+}
+
+.difficulty {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.difficultySelect {
+    background-color: var(--ui-colors-square);
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 32px;
+
+    background-color: var(--ui-colors-bg);
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 20px;
+
+    background-color: var(--ui-colors-bg);
+    min-height: 128px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

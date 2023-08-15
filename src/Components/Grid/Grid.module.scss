@@ -1,0 +1,71 @@
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 12px solid var(--ui-colors-square);
+    border-radius: 8px;
+    user-select: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--ui-colors-square-shown);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    height: 40px;
+
+    background-color: var(--ui-colors-square);
+    padding-bottom: 12px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    flex: 2;
+}
+
+.minesLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    flex: 2;
+    background-color: var(--ui-colors-black);
+    color: var(--ui-colors-mines-left);
+    margin-right: 6px;
+
+    font-weight: bold;
+    font-size: 1.5em;
+
+    border: 2px inset var(--ui-colors-square);
+    border-radius: 4px;
+}
+
+.timeLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    flex: 2;
+    background-color: var(--ui-colors-black);
+    color: var(--ui-colors-time-left);
+    margin-left: 6px;
+
+    font-weight: bold;
+    font-size: 1.5em;
+
+    border: 2px inset var(--ui-colors-square);
+    border-radius: 4px;
+}

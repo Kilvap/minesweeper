@@ -1,0 +1,86 @@
+.square {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+    height: 20px;
+    aspect-ratio: 1;
+
+    background-color: var(--ui-colors-square);
+    border: 2px outset;
+
+    font-weight: bold;
+    font-size: 1.4em;
+
+    transition: all 0.4s ease-in;
+    transition-property: background-color;
+}
+
+.square:hover {
+    background-color: var(--ui-colors-square-hover);
+}
+
+.square.hidden {
+    border: 2px outset;
+}
+
+.square.shown {
+    border: 2px dashed var(--ui-colors-square-shown-border);
+    background-color: var(--ui-colors-square-shown);
+}
+
+.square.blue {
+    color: var(--ui-colors-square-value-blue);
+}
+
+.square.red {
+    color: var(--ui-colors-square-value-red);
+}
+
+.square.green {
+    color: var(--ui-colors-square-value-green);
+}
+
+.square.purple {
+    color: var(--ui-colors-square-value-purple);
+}
+
+.square.yellow {
+    color: var(--ui-colors-square-value-yellow);
+}
+
+.square.pink {
+    color: var(--ui-colors-square-value-pink);
+}
+
+.square.brown {
+    color: var(--ui-colors-square-value-brown);
+}
+
+.square.teal {
+    color: var(--ui-colors-square-value-teal);
+}
+
+.square.bomb {
+    background-color: var(--ui-colors-square-value-bomb);
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .square {
+        height: 20px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .square {
+        height: 28px;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .square {
+        height: 40px;
+    }
+}

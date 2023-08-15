@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.gameContainer {
+    display: grid;
+    grid-template-areas:
+        ". . ."
+        ". game . "
+        ". game ."
+        ". . .";
+
+    column-gap: var(--ui-margin-amt);
+    row-gap: var(--ui-margin-amt);
+}
+
+.game {
+    grid-area: game;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
