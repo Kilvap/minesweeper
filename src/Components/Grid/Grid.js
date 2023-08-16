@@ -12,7 +12,7 @@ import { useGameContext } from '../../Context/Game/GameContext';
 function Grid(props) {
 
     let [showSettings, setShowSettings] = useState(false);
-    let { gameContext } = useGameContext()
+    let { gameContext } = useGameContext();
 
     let { state: { state, grid } } = props;
     let rows = [];

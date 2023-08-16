@@ -9,13 +9,16 @@
 
     // using this trick to keep widths / heights to whole numbers:
     // https://stackoverflow.com/questions/37754542/css-calc-round-down-with-two-decimal-cases/64921523#64921523
-    --shf: 4.9406564584124654e-324;
+    // --shf: 4.9406564584124654e-324;
 
     // we calculate a square size and make sure it's a whole number that's divisible by grid width
     // NOTE: we add pixels if we want gaps
+    // --square-size-intermediate: calc(max(20px, (min(60vw, 60vh) / 16)) *  var(--shf) / var(--shf));
+    // --square-size-expert: calc(max(20px, (min(80vw, 80vh) / 30)) *  var(--shf) / var(--shf));
+
     --square-size-beginner: 40px;
-    --square-size-intermediate: calc(max(20px, (min(60vw, 60vh) / 16)) *  var(--shf) / var(--shf));
-    --square-size-expert: calc(max(20px, (min(80vw, 80vh) / 30)) *  var(--shf) / var(--shf));
+    --square-size-intermediate: 24px;
+    --square-size-expert: 20px;
 }
 
 .row {

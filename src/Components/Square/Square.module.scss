@@ -8,9 +8,6 @@
     border: 2px outset;
 
     font-weight: bold;
-
-    transition: all 0.4s ease-in;
-    transition-property: background-color;
 }
 
 .beginner {
@@ -23,14 +20,14 @@
 .intermediate {
     height: var(--square-size-intermediate);
     width: var(--square-size-intermediate);
-    font-size: max(16px, min(2.4vh, 2.4vw));
+    font-size: 18px;
     aspect-ratio: 1;
 }
 
 .expert {
     height: var(--square-size-expert);
     width: var(--square-size-expert);
-    font-size: max(16px, min(2.4vh, 2.4vw));
+    font-size: 18px;
     aspect-ratio: 1;
 }
 
