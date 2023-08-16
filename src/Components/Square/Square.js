@@ -3,6 +3,7 @@ import { SQUARE_STATE_HIDDEN, SQUARE_STATE_SHOWN, SQUARE_STATE_FLAGGED, GAME_STA
 import { ClickSquareAction, FlagSquareAction } from '../../State/Actions';
 import FlagIcon from '../Icons/Flag/Flag';
 import MineIcon from '../Icons/Mine/Mine';
+import { GAME_DIFFICULTY_BEGINNER, GAME_DIFFICULTY_INTERMEDIATE, GAME_DIFFICULTY_EXPERT } from '../../Context/Game/GameContextReducer';
 
 let colors = {
     1: styles.blue,
@@ -15,9 +16,16 @@ let colors = {
     8: styles.teal
 };
 
+let squareSizeClasses = {
+    [GAME_DIFFICULTY_BEGINNER]: styles.beginner,
+    [GAME_DIFFICULTY_INTERMEDIATE]: styles.intermediate,
+    [GAME_DIFFICULTY_EXPERT]: styles.expert,
+};
+
 function GetSquareClass(props) {
     
     let classes = [styles.square];
+    classes.push(squareSizeClasses[props.difficulty]);
     
     if (props.state === SQUARE_STATE_HIDDEN) {
         classes.push(styles.hidden);

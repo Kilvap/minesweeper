@@ -11,6 +11,7 @@
   --ui-colors-square-hover: #D0D0D0;
   --ui-colors-square-shown: #D0D0D0;
   --ui-colors-square-shown-border: rgba(123, 123, 123, 0.25);
+  --ui-colors-square-hidden-edge: rgba(78, 78, 78, 0.9);
 
   --ui-colors-square-value-blue: blue;
   --ui-colors-square-value-green: green;

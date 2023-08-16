@@ -14,6 +14,7 @@
 
     animation: fadeIn 500ms linear 750ms;
     animation-fill-mode: forwards;
+    z-index: 99;
 }
 
 @keyframes fadeIn {
@@ -44,10 +45,6 @@
 
 .victory {
     background-color: var(--ui-colors-overlay-bg-victory);
-}
-
-.settings {
-    background-color: var(--ui-colors-overlay-bg-settings);
 }
 
 .top {

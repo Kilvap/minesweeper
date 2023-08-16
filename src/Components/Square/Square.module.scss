@@ -3,18 +3,35 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    
-    height: 20px;
-    aspect-ratio: 1;
 
     background-color: var(--ui-colors-square);
     border: 2px outset;
 
     font-weight: bold;
-    font-size: 1.4em;
 
     transition: all 0.4s ease-in;
     transition-property: background-color;
+}
+
+.beginner {
+    height: var(--square-size-beginner);
+    width: var(--square-size-beginner);
+    font-size: 24px;
+    aspect-ratio: 1;
+}
+
+.intermediate {
+    height: var(--square-size-intermediate);
+    width: var(--square-size-intermediate);
+    font-size: max(16px, min(2.4vh, 2.4vw));
+    aspect-ratio: 1;
+}
+
+.expert {
+    height: var(--square-size-expert);
+    width: var(--square-size-expert);
+    font-size: max(16px, min(2.4vh, 2.4vw));
+    aspect-ratio: 1;
 }
 
 .square:hover {
@@ -22,11 +39,14 @@
 }
 
 .square.hidden {
-    border: 2px outset;
+    border-bottom: solid 2px var(--ui-colors-square-hidden-edge);
+    border-right: solid 2px var(--ui-colors-square-hidden-edge);
+    border-top: solid 2px var(--ui-colors-pitch-white);
+    border-left: solid 2px var(--ui-colors-pitch-white);
 }
 
 .square.shown {
-    border: 2px dashed var(--ui-colors-square-shown-border);
+    border: 2px solid var(--ui-colors-square-shown-border);
     background-color: var(--ui-colors-square-shown);
 }
 
@@ -67,20 +87,20 @@
     border-radius: 50%;
 }
 
-@media screen and (max-width: 600px) {
-    .square {
-        height: 20px;
-    }
-}
+// @media screen and (max-height: 600px) {
+//     .square {
+//         height: 20px;
+//     }
+// }
 
-@media screen and (min-width: 640px) {
-    .square {
-        height: 28px;
-    }
-}
+// @media screen and (min-height: 640px) {
+//     .square {
+//         height: 28px;
+//     }
+// }
 
-@media screen and (min-width: 1080px) {
-    .square {
-        height: 40px;
-    }
-}
+// @media screen and (min-height: 1080px) {
+//     .square {
+//         height: 40px;
+//     }
+// }

@@ -7,10 +7,12 @@ import GameOverOverlay from '../Overlay/GameOverOverlay';
 import SettingsOverlay from '../Overlay/SettingsOverlay';
 
 import styles from './Grid.module.scss';
+import { useGameContext } from '../../Context/Game/GameContext';
 
 function Grid(props) {
 
     let [showSettings, setShowSettings] = useState(false);
+    let { gameContext } = useGameContext()
 
     let { state: { state, grid } } = props;
     let rows = [];
@@ -22,6 +24,7 @@ function Grid(props) {
             let item = grid[r][c];
             row.push(              
                 <Square
+                    difficulty={gameContext.difficulty}
                     gameState={state}
                     key={[r, c]} 
                     value={item.value} 
