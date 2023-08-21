@@ -56,8 +56,6 @@ function Cell(props) {
 
     let displayValue = "";
 
-    console.log("RENDERING CELL..", props.cellId);
-
     if (props.state === CELL_STATE_SHOWN && props.value > 0) {
         displayValue = props.value;
     }
