@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
 
-    border: 12px solid var(--ui-colors-square);
+    border: 12px solid var(--ui-colors-cell);
     border-radius: 8px;
     user-select: none;
 
@@ -11,20 +11,20 @@
     // https://stackoverflow.com/questions/37754542/css-calc-round-down-with-two-decimal-cases/64921523#64921523
     // --shf: 4.9406564584124654e-324;
 
-    // we calculate a square size and make sure it's a whole number that's divisible by grid width
+    // we calculate a cell size and make sure it's a whole number that's divisible by grid width
     // NOTE: we add pixels if we want gaps
-    // --square-size-intermediate: calc(max(20px, (min(60vw, 60vh) / 16)) *  var(--shf) / var(--shf));
-    // --square-size-expert: calc(max(20px, (min(80vw, 80vh) / 30)) *  var(--shf) / var(--shf));
+    // --cell-size-intermediate: calc(max(20px, (min(60vw, 60vh) / 16)) *  var(--shf) / var(--shf));
+    // --cell-size-expert: calc(max(20px, (min(80vw, 80vh) / 30)) *  var(--shf) / var(--shf));
 
-    --square-size-beginner: 40px;
-    --square-size-intermediate: 24px;
-    --square-size-expert: 20px;
+    --cell-size-beginner: 40px;
+    --cell-size-intermediate: 24px;
+    --cell-size-expert: 20px;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    background-color: var(--ui-colors-square-shown);
+    background-color: var(--ui-colors-cell-shown);
 }
 
 .header {
@@ -34,7 +34,7 @@
     
     height: 40px;
 
-    background-color: var(--ui-colors-square);
+    background-color: var(--ui-colors-cell);
     padding-bottom: 12px;
 }
 
@@ -61,7 +61,7 @@
     font-weight: bold;
     font-size: 1.5em;
 
-    border: 2px inset var(--ui-colors-square);
+    border: 2px inset var(--ui-colors-cell);
     border-radius: 4px;
 }
 
@@ -79,6 +79,6 @@
     font-weight: bold;
     font-size: 1.5em;
 
-    border: 2px inset var(--ui-colors-square);
+    border: 2px inset var(--ui-colors-cell);
     border-radius: 4px;
 }

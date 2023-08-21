@@ -7,21 +7,21 @@
   --ui-colors-bg: #312e2b;
   --ui-colors-border: var(--ui-colors-black);
 
-  --ui-colors-square: rgba(189, 189, 189, 1);
-  --ui-colors-square-hover: #D0D0D0;
-  --ui-colors-square-shown: #D0D0D0;
-  --ui-colors-square-shown-border: rgba(123, 123, 123, 0.25);
-  --ui-colors-square-hidden-edge: rgba(78, 78, 78, 0.9);
+  --ui-colors-cell: rgba(189, 189, 189, 1);
+  --ui-colors-cell-hover: #D0D0D0;
+  --ui-colors-cell-shown: #D0D0D0;
+  --ui-colors-cell-shown-border: rgba(123, 123, 123, 0.25);
+  --ui-colors-cell-hidden-edge: rgba(78, 78, 78, 0.9);
 
-  --ui-colors-square-value-blue: blue;
-  --ui-colors-square-value-green: green;
-  --ui-colors-square-value-red: darkred;
-  --ui-colors-square-value-purple: purple;
-  --ui-colors-square-value-yellow: yellow;
-  --ui-colors-square-value-pink: darkorange;
-  --ui-colors-square-value-brown: brown;
-  --ui-colors-square-value-teal: teal;
-  --ui-colors-square-value-bomb: rgba(139, 0, 0, 0.9);
+  --ui-colors-cell-value-blue: blue;
+  --ui-colors-cell-value-green: green;
+  --ui-colors-cell-value-red: darkred;
+  --ui-colors-cell-value-purple: purple;
+  --ui-colors-cell-value-yellow: yellow;
+  --ui-colors-cell-value-pink: darkorange;
+  --ui-colors-cell-value-brown: brown;
+  --ui-colors-cell-value-teal: teal;
+  --ui-colors-cell-value-bomb: rgba(139, 0, 0, 0.9);
 
   --ui-colors-overlay-bg-defeat: rgba(139, 0, 0, 0.4);
   --ui-colors-overlay-bg-victory: rgba(107, 216, 0, 0.6);

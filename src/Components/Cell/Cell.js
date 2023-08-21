@@ -1,9 +1,10 @@
-import styles from './Square.module.scss';
-import { SQUARE_STATE_HIDDEN, SQUARE_STATE_SHOWN, SQUARE_STATE_FLAGGED, GAME_STATE_ACTIVE, GAME_STATE_PREGAME } from '../../State/State';
-import { ClickSquareAction, FlagSquareAction } from '../../State/Actions';
+import { CELL_STATE_HIDDEN, CELL_STATE_SHOWN, CELL_STATE_FLAGGED, GAME_STATE_ACTIVE, GAME_STATE_PREGAME } from '../../State/State';
+import { ClickCellAction, FlagCellAction } from '../../State/Actions';
 import FlagIcon from '../Icons/Flag/Flag';
 import MineIcon from '../Icons/Mine/Mine';
 import { GAME_DIFFICULTY_BEGINNER, GAME_DIFFICULTY_INTERMEDIATE, GAME_DIFFICULTY_EXPERT } from '../../Context/Game/GameContextReducer';
+
+import styles from './Cell.module.scss';
 
 let colors = {
     1: styles.blue,
@@ -16,75 +17,75 @@ let colors = {
     8: styles.teal
 };
 
-let squareSizeClasses = {
+let cellSizeClasses = {
     [GAME_DIFFICULTY_BEGINNER]: styles.beginner,
     [GAME_DIFFICULTY_INTERMEDIATE]: styles.intermediate,
     [GAME_DIFFICULTY_EXPERT]: styles.expert,
 };
 
-function GetSquareClass(props) {
+function GetCellClass(props) {
     
-    let classes = [styles.square];
-    classes.push(squareSizeClasses[props.difficulty]);
+    let classes = [styles.cell];
+    classes.push(cellSizeClasses[props.difficulty]);
     
-    if (props.state === SQUARE_STATE_HIDDEN) {
+    if (props.state === CELL_STATE_HIDDEN) {
         classes.push(styles.hidden);
     }
 
-    if (props.state === SQUARE_STATE_FLAGGED) {
+    if (props.state === CELL_STATE_FLAGGED) {
         classes.push(styles.hidden);
     }
 
-    if (props.state === SQUARE_STATE_SHOWN) {
+    if (props.state === CELL_STATE_SHOWN) {
         classes.push(styles.shown);
     }
 
-    if (props.state === SQUARE_STATE_SHOWN && props.value > 0) {
+    if (props.state === CELL_STATE_SHOWN && props.value > 0) {
         classes.push(colors[props.value]);
     }
 
-    if (props.state === SQUARE_STATE_SHOWN && props.value < 0) {
+    if (props.state === CELL_STATE_SHOWN && props.value < 0) {
         classes.push(styles.bomb);
     }
 
     return classes.join(" ");
 }
 
-function Square(props) {
+function Cell(props) {
 
     let displayValue = "";
 
-    if (props.state === SQUARE_STATE_SHOWN && props.value > 0) {
+    if (props.state === CELL_STATE_SHOWN && props.value > 0) {
         displayValue = props.value;
     }
 
-    if (props.state === SQUARE_STATE_SHOWN && props.value < 0) {
+    if (props.state === CELL_STATE_SHOWN && props.value < 0) {
         displayValue = <MineIcon />;
     }
 
-    if (props.state === SQUARE_STATE_FLAGGED) {
+    if (props.state === CELL_STATE_FLAGGED) {
         displayValue = <FlagIcon />;
     }
 
-    let clickSquare = (props) => (e) => {
+    let clickCell = (props) => (e) => {
 
         if (props.gameState !== GAME_STATE_ACTIVE && props.gameState !== GAME_STATE_PREGAME) {
             return false;
         }
 
         if (e.nativeEvent.button === 0) {
-            props.updateState(ClickSquareAction(props.row, props.col));
+            props.updateState(ClickCellAction(props.cellId));
         } else if (e.nativeEvent.button === 2) {
             e.preventDefault();
-            props.updateState(FlagSquareAction(props.row, props.col));
+            props.updateState(FlagCellAction(props.cellId));
         }
 
         return false;
     }
 
     return (
-        <div className={GetSquareClass(props)} onClick={clickSquare(props)} onContextMenu={clickSquare(props)}> { displayValue } </div>
+        <div className={GetCellClass(props)} onClick={clickCell(props)} onContextMenu={clickCell(props)}> { displayValue } </div>
     )
 }
 
-export default Square;
+export default Cell;

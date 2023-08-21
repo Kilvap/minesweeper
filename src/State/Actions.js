@@ -1,14 +1,14 @@
 
-export const SELECT_SQUARE="SELECT_SQUARE";
-export const FLAG_SQUARE="FLAG_SQUARE";
+export const SELECT_CELL="SELECT_CELL";
+export const FLAG_CELL="FLAG_CELL";
 export const UPDATE_TIME="UPDATE_TIME";
 
-export function ClickSquareAction(row, col) {
-    return { type: SELECT_SQUARE, row, col };
+export function ClickCellAction(cellId) {
+    return { type: SELECT_CELL, cellId };
 }
 
-export function FlagSquareAction(row, col) {
-    return { type: FLAG_SQUARE, row, col};
+export function FlagCellAction(cellId) {
+    return { type: FLAG_CELL, cellId};
 }
 
 export function UpdateTimeAction(time) {

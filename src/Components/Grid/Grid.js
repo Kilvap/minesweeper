@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Square from '../Square/Square';
+import Cell from '../Cell/Cell';
 import Clock from '../Clock/Clock';
 import SettingsIcon from '../Icons/Settings/Settings';
 import { GAME_STATE_DEFEAT, GAME_STATE_VICTORY } from '../../State/State';
@@ -14,23 +14,23 @@ function Grid(props) {
     let [showSettings, setShowSettings] = useState(false);
     let { gameContext } = useGameContext();
 
-    let { state: { state, grid } } = props;
+    let { state: { state, grid, cellData } } = props;
     let rows = [];
 
     for (var r = 0; r < grid.length; r++) {
         
         let row = [];
         for (var c = 0; c < grid[r].length; c++) {
-            let item = grid[r][c];
+            let cellId = grid[r][c];
+
             row.push(              
-                <Square
+                <Cell
                     difficulty={gameContext.difficulty}
                     gameState={state}
-                    key={[r, c]} 
-                    value={item.value} 
-                    state={item.state} 
-                    row={r} 
-                    col={c}
+                    key={cellId}
+                    cellId={cellId}
+                    value={cellData[cellId].value} 
+                    state={cellData[cellId].state} 
                     updateState={props.updateState}
                 />
             );
