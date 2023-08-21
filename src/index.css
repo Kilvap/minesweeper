@@ -32,6 +32,10 @@
 
   --ui-margin-amt: 8px;
   --ui-border-radius: 8px;
+
+  --cell-size-beginner: 40px;
+  --cell-size-intermediate: 24px;
+  --cell-size-expert: 20px;
 }
 
 body {
