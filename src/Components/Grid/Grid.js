@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Cell from '../Cell/Cell';
 import Clock from '../Clock/Clock';
 import SettingsIcon from '../Icons/Settings/Settings';
@@ -26,7 +26,6 @@ function Grid(props) {
             row.push(              
                 <Cell
                     difficulty={gameContext.difficulty}
-                    gameState={state}
                     key={cellId}
                     cellId={cellId}
                     value={cellData[cellId].value} 
@@ -58,4 +57,4 @@ function Grid(props) {
     );
 }
 
-export default Grid;
+export default memo(Grid);

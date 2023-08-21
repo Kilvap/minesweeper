@@ -1,4 +1,5 @@
-import { CELL_STATE_HIDDEN, CELL_STATE_SHOWN, CELL_STATE_FLAGGED, GAME_STATE_ACTIVE, GAME_STATE_PREGAME } from '../../State/State';
+import { memo } from 'react';
+import { CELL_STATE_HIDDEN, CELL_STATE_SHOWN, CELL_STATE_FLAGGED } from '../../State/State';
 import { ClickCellAction, FlagCellAction } from '../../State/Actions';
 import FlagIcon from '../Icons/Flag/Flag';
 import MineIcon from '../Icons/Mine/Mine';
@@ -55,6 +56,8 @@ function Cell(props) {
 
     let displayValue = "";
 
+    console.log("RENDERING CELL..", props.cellId);
+
     if (props.state === CELL_STATE_SHOWN && props.value > 0) {
         displayValue = props.value;
     }
@@ -68,10 +71,6 @@ function Cell(props) {
     }
 
     let clickCell = (props) => (e) => {
-
-        if (props.gameState !== GAME_STATE_ACTIVE && props.gameState !== GAME_STATE_PREGAME) {
-            return false;
-        }
 
         if (e.nativeEvent.button === 0) {
             props.updateState(ClickCellAction(props.cellId));
@@ -88,4 +87,4 @@ function Cell(props) {
     )
 }
 
-export default Cell;
+export default memo(Cell);
