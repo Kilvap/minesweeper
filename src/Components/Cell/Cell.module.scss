@@ -41,9 +41,6 @@
 .cell.shown {
     border: 2px solid var(--ui-colors-cell-shown-border);
     background-color: var(--ui-colors-cell-shown);
-
-    transition: all 0.2s ease-in;
-    transition-property: background-color;
 }
 
 .cell.blue {

@@ -113,13 +113,42 @@ function SelectEmptyCells(grid, cellData, row, col) {
         return 1;
     }
 
-    return 1 +
-        SelectEmptyCells(grid, cellData, row-1, col-1) +
-        SelectEmptyCells(grid, cellData, row-1, col) +
-        SelectEmptyCells(grid, cellData, row-1, col+1) +
-        SelectEmptyCells(grid, cellData, row, col-1) +
-        SelectEmptyCells(grid, cellData, row, col+1) +
-        SelectEmptyCells(grid, cellData, row+1, col-1) +
-        SelectEmptyCells(grid, cellData, row+1, col) +
-        SelectEmptyCells(grid, cellData, row+1, col+1);
+    let numOfCellsRevealed = 1;
+
+    // Top
+    if (row-1 >= 0 && col-1 >= 0 && (cellData[grid[row-1][col-1]].state !== CELL_STATE_SHOWN || cellData[grid[row-1][col-1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row-1, col-1);
+    }
+
+    if (row-1 >= 0 && (cellData[grid[row-1][col]].state !== CELL_STATE_SHOWN && cellData[grid[row-1][col]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row-1, col,);
+    }
+
+    if (row-1 >= 0 && col+1 < grid[row-1].length && (cellData[grid[row-1][col+1]].state !== CELL_STATE_SHOWN && cellData[grid[row-1][col+1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row-1, col+1);
+    }
+
+    // Sides
+    if (col-1 >= 0 && (cellData[grid[row][col-1]].state !== CELL_STATE_SHOWN && cellData[grid[row][col-1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row, col-1);
+    }
+
+    if (col+1 < grid[row].length && (cellData[grid[row][col+1]].state !== CELL_STATE_SHOWN && cellData[grid[row][col+1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row, col+1);
+    }
+
+    // Bottom
+    if (row+1 < grid.length && col-1 >= 0 && (cellData[grid[row+1][col-1]].state !== CELL_STATE_SHOWN && cellData[grid[row+1][col-1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row+1, col-1);
+    }
+
+    if (row+1 < grid.length && (cellData[grid[row+1][col]].state !== CELL_STATE_SHOWN && cellData[grid[row+1][col]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row+1, col);
+    }
+
+    if (row+1 < grid.length && col+1 < grid[row+1].length && (cellData[grid[row+1][col+1]].state !== CELL_STATE_SHOWN && cellData[grid[row+1][col+1]].state !== CELL_STATE_FLAGGED)) {
+        numOfCellsRevealed += SelectEmptyCells(grid, cellData, row+1, col+1);
+    }
+
+    return numOfCellsRevealed;
 }
