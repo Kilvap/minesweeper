@@ -14,7 +14,7 @@ function Grid(props) {
     let [showSettings, setShowSettings] = useState(false);
     let { gameContext } = useGameContext();
 
-    let { state: { state, grid, cellData } } = props;
+    let { state: { state, grid, cellData, losingCellId } } = props;
     let rows = [];
 
     for (var r = 0; r < grid.length; r++) {
@@ -30,6 +30,7 @@ function Grid(props) {
                     cellId={cellId}
                     value={cellData[cellId].value} 
                     state={cellData[cellId].state} 
+                    losingCellId={losingCellId}
                     updateState={props.updateState}
                 />
             );

@@ -45,7 +45,7 @@ function GetCellClass(props) {
         classes.push(colors[props.value]);
     }
 
-    if (props.state === CELL_STATE_SHOWN && props.value < 0) {
+    if (props.state === CELL_STATE_SHOWN && props.value < 0 && props.cellId === props.losingCellId) {
         classes.push(styles.bomb);
     }
 

@@ -21,6 +21,7 @@ export function InitState(rows, cols, numOfMines) {
         mines: [], // set of mine cellIds,
         cellsRemaining: (rows * cols) - numOfMines,
         minesRemaining: numOfMines,
+        losingCellId: -1, // cellId clicked on defeat
         time: 0,
     };
 

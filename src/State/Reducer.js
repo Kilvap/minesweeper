@@ -13,6 +13,8 @@ export default function reducer(state, action) {
             if (newCellData[cellId].value < 0) {
                 
                 newState.state = GAME_STATE_DEFEAT;
+                newState.losingCellId = cellId;
+                
                 ShowAllBombs(newCellData, state.mines);
                 
                 return { ...newState, cellData: newCellData };
