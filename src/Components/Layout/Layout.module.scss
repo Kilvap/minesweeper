@@ -5,16 +5,17 @@
     height: 100vh;
 }
 
-.gameContainer {
+.layout {
     display: grid;
     grid-template-areas:
         ". . ."
         ". game . "
         ". game ."
-        ". . .";
+        ". . ."
+        ". nav .";
 
     column-gap: var(--ui-margin-amt);
-    row-gap: var(--ui-margin-amt);
+    row-gap: 32px;
 }
 
 .game {
@@ -25,23 +26,10 @@
     justify-content: center;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 16px;
-    padding-top: 6px;
-}
-
-.footerRow {
+.nav {
+    grid-area: nav;
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-
-.footerIcon {
-    margin-left: 6px;
-    margin-right: 6px;
 }

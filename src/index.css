@@ -6,6 +6,7 @@
 
   --ui-colors-bg: #312e2b;
   --ui-colors-border: var(--ui-colors-black);
+  --ui-colors-accent: hsla(0,0%,100%,.08);
 
   --ui-colors-cell: rgba(189, 189, 189, 1);
   --ui-colors-cell-hover: #D0D0D0;
