@@ -5,6 +5,7 @@
   --ui-colors-white: #D0D9CD;
 
   --ui-colors-bg: #312e2b;
+  --ui-colors-secondary: #26211b;
   --ui-colors-border: var(--ui-colors-black);
   --ui-colors-accent: hsla(0,0%,100%,.08);
 
