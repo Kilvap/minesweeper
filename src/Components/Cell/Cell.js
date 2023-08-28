@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { CELL_STATE_HIDDEN, CELL_STATE_SHOWN, CELL_STATE_FLAGGED } from '../../State/State';
+import { CELL_STATE_HIDDEN, CELL_STATE_SHOWN, CELL_STATE_FLAGGED, CELL_STATE_FLAGGED_INCORRECTLY } from '../../State/State';
 import { ClickCellAction, FlagCellAction } from '../../State/Actions';
 import FlagIcon from '../Icons/Flag/Flag';
 import MineIcon from '../Icons/Mine/Mine';
@@ -37,6 +37,10 @@ function GetCellClass(props) {
         classes.push(styles.hidden);
     }
 
+    if (props.state === CELL_STATE_FLAGGED_INCORRECTLY) {
+        classes.push(styles.bomb)
+    }
+
     if (props.state === CELL_STATE_SHOWN) {
         classes.push(styles.shown);
     }
@@ -64,7 +68,7 @@ function Cell(props) {
         displayValue = <MineIcon />;
     }
 
-    if (props.state === CELL_STATE_FLAGGED) {
+    if (props.state === CELL_STATE_FLAGGED || props.state === CELL_STATE_FLAGGED_INCORRECTLY) {
         displayValue = <FlagIcon />;
     }
 

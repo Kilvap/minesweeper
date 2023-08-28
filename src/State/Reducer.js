@@ -1,4 +1,4 @@
-import { CELL_STATE_SHOWN, CELL_STATE_FLAGGED, CELL_STATE_HIDDEN, GAME_STATE_DEFEAT, GAME_STATE_VICTORY, GAME_STATE_ACTIVE } from './State';
+import { CELL_STATE_SHOWN, CELL_STATE_FLAGGED, CELL_STATE_FLAGGED_INCORRECTLY, CELL_STATE_HIDDEN, GAME_STATE_DEFEAT, GAME_STATE_VICTORY, GAME_STATE_ACTIVE } from './State';
 import { SELECT_CELL, FLAG_CELL, UPDATE_TIME } from './Actions';
 
 export default function reducer(state, action) {
@@ -16,6 +16,7 @@ export default function reducer(state, action) {
                 newState.losingCellId = cellId;
                 
                 ShowAllBombs(newCellData, state.mines);
+                CheckAllFlagged(newCellData, state.flags);
                 
                 return { ...newState, cellData: newCellData };
             }
@@ -54,13 +55,28 @@ export default function reducer(state, action) {
                 return newState;
             }
 
+            // No op when flagging too many
+            if (minesRemaining <= 0 && target.state === CELL_STATE_HIDDEN) {
+                return newState;
+            }
+                        
             // Toggle marked cells
             if (target.state === CELL_STATE_FLAGGED) {
                 newCellData[cellId] = { ...newCellData[cellId], state: CELL_STATE_HIDDEN };
                 minesRemaining += 1;
+                
+                // Remove from flags set
+                var index = newState.flags.indexOf(cellId);
+                if (index > -1) {
+                    newState.flags = [...state.flags.slice(0, index), ...state.flags.slice(index+1)];
+                }
+
             } else {
                 newCellData[cellId] = { ...newCellData[cellId], state: CELL_STATE_FLAGGED };
                 minesRemaining -= 1;
+
+                // Add to flags set
+                newState.flags = [...state.flags, cellId];
             }
             
             return { ...newState, cellData: newCellData, minesRemaining };
@@ -79,7 +95,22 @@ function ShowAllBombs(cellData, mines) {
     for (var i = 0; i < mines.length; i++) {
         let mineId = mines[i];
         cellData[mineId] = { ...cellData[mineId] };
-        cellData[mineId].state = CELL_STATE_SHOWN;
+
+        if (cellData[mineId].state !== CELL_STATE_FLAGGED) {
+            cellData[mineId].state = CELL_STATE_SHOWN;
+        }
+    }
+}
+
+function CheckAllFlagged(cellData, flags) {
+
+    for (var i = 0; i < flags.length; i++) {
+        let cellId = flags[i];
+        cellData[cellId] = { ...cellData[cellId] };
+
+        if (cellData[cellId].state ===  CELL_STATE_FLAGGED && cellData[cellId].value >= 0) {
+            cellData[cellId].state = CELL_STATE_FLAGGED_INCORRECTLY;
+        }
     }
 }
 

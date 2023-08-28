@@ -1,6 +1,7 @@
 export const CELL_STATE_SHOWN = "shown";
 export const CELL_STATE_HIDDEN = "hidden";
 export const CELL_STATE_FLAGGED = "flagged";
+export const CELL_STATE_FLAGGED_INCORRECTLY = "flagged_incorrectly";
 
 export const GAME_STATE_PREGAME = "pregame";
 export const GAME_STATE_ACTIVE = "active";
@@ -19,6 +20,7 @@ export function InitState(rows, cols, numOfMines) {
         grid: [],
         cellData: {},
         mines: [], // set of mine cellIds,
+        flags: [], // set of flagged cellIds,
         cellsRemaining: (rows * cols) - numOfMines,
         minesRemaining: numOfMines,
         losingCellId: -1, // cellId clicked on defeat
