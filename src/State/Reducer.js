@@ -16,7 +16,7 @@ export default function reducer(state, action) {
                 newState.losingCellId = cellId;
                 
                 ShowAllBombs(newCellData, state.mines);
-                CheckAllFlagged(newCellData, state.flags);
+                ShowFalseFlags(newCellData, state.falseFlags);
                 
                 return { ...newState, cellData: newCellData };
             }
@@ -65,18 +65,20 @@ export default function reducer(state, action) {
                 newCellData[cellId] = { ...newCellData[cellId], state: CELL_STATE_HIDDEN };
                 minesRemaining += 1;
                 
-                // Remove from flags set
-                var index = newState.flags.indexOf(cellId);
+                // Remove from false flags set
+                var index = newState.falseFlags.indexOf(cellId);
                 if (index > -1) {
-                    newState.flags = [...state.flags.slice(0, index), ...state.flags.slice(index+1)];
+                    newState.falseFlags = [...state.falseFlags.slice(0, index), ...state.falseFlags.slice(index+1)];
                 }
 
             } else {
                 newCellData[cellId] = { ...newCellData[cellId], state: CELL_STATE_FLAGGED };
                 minesRemaining -= 1;
 
-                // Add to flags set
-                newState.flags = [...state.flags, cellId];
+                // Add to false flags set
+                if (newCellData[cellId].value >= 0) {
+                    newState.falseFlags = [...state.falseFlags, cellId];
+                }
             }
             
             return { ...newState, cellData: newCellData, minesRemaining };
@@ -102,15 +104,12 @@ function ShowAllBombs(cellData, mines) {
     }
 }
 
-function CheckAllFlagged(cellData, flags) {
+function ShowFalseFlags(cellData, falseFlags) {
 
-    for (var i = 0; i < flags.length; i++) {
-        let cellId = flags[i];
+    for (var i = 0; i < falseFlags.length; i++) {
+        let cellId = falseFlags[i];
         cellData[cellId] = { ...cellData[cellId] };
-
-        if (cellData[cellId].state ===  CELL_STATE_FLAGGED && cellData[cellId].value >= 0) {
-            cellData[cellId].state = CELL_STATE_FLAGGED_INCORRECTLY;
-        }
+        cellData[cellId].state = CELL_STATE_FLAGGED_INCORRECTLY;
     }
 }
 

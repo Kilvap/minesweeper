@@ -20,7 +20,7 @@ export function InitState(rows, cols, numOfMines) {
         grid: [],
         cellData: {},
         mines: [], // set of mine cellIds,
-        flags: [], // set of flagged cellIds,
+        falseFlags: [], // set of falsely flagged cellIds,
         cellsRemaining: (rows * cols) - numOfMines,
         minesRemaining: numOfMines,
         losingCellId: -1, // cellId clicked on defeat
