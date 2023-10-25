@@ -36,8 +36,8 @@
   --ui-border-radius: 8px;
 
   --cell-size-beginner: 40px;
-  --cell-size-intermediate: 24px;
-  --cell-size-expert: 20px;
+  --cell-size-intermediate: 32px;
+  --cell-size-expert: 24px;
 }
 
 body {

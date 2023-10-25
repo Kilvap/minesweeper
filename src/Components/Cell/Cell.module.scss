@@ -20,7 +20,7 @@
 .intermediate {
     height: var(--cell-size-intermediate);
     width: var(--cell-size-intermediate);
-    font-size: 18px;
+    font-size: 20px;
     aspect-ratio: 1;
 }
 
@@ -78,21 +78,3 @@
 .cell.bomb {
     background-color: var(--ui-colors-cell-value-bomb);
 }
-
-// @media screen and (max-height: 600px) {
-//     .cell {
-//         height: 20px;
-//     }
-// }
-
-// @media screen and (min-height: 640px) {
-//     .cell {
-//         height: 28px;
-//     }
-// }
-
-// @media screen and (min-height: 1080px) {
-//     .cell {
-//         height: 40px;
-//     }
-// }
