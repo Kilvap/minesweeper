@@ -73,11 +73,11 @@ function Cell(props) {
     }
 
     let clickCell = (props) => (e) => {
+        e.preventDefault();
 
         if (e.nativeEvent.button === 0) {
             props.updateState(ClickCellAction(props.cellId));
         } else if (e.nativeEvent.button === 2) {
-            e.preventDefault();
             props.updateState(FlagCellAction(props.cellId));
         }
 

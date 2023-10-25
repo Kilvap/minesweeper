@@ -9,6 +9,11 @@ export default function reducer(state, action) {
             var cellId = action.cellId;
             var newCellData = { ...newState.cellData };
 
+            // Clicked on a flag, no-op
+            if (newCellData[cellId].state === CELL_STATE_FLAGGED) {
+                return newState;
+            }
+
             // Clicked on a bomb
             if (newCellData[cellId].value < 0) {
                 
